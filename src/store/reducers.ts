@@ -32,7 +32,7 @@ export const rootReducer: Reducer<StoreState, Actions> = (
       const split = state.split - 1;
       return {
         ...state,
-        split: split > 1 ? split : state.split,
+        split: split >= 1 ? split : state.split,
       };
     case ActionTypes.Reset:
       return initalState;
