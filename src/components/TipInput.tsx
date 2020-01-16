@@ -15,8 +15,9 @@ export const TipInput = () => {
         <div className='text-teal-400'>Bill</div>
         <input
           className='w-full bg-gray-800 text-white text-2xl'
-          value={bill}
+          value={bill.toFixed(2)}
           onChange={e =>
+            !Number.isNaN(Number(e.target.value)) &&
             dispatch({
               type: ActionTypes.BillChange,
               payload: e.target.value,
@@ -31,6 +32,7 @@ export const TipInput = () => {
           className='w-full bg-gray-800 text-white text-2xl'
           value={percentage}
           onChange={e =>
+            !Number.isNaN(Number(e.target.value)) &&
             dispatch({
               type: ActionTypes.PercentageChange,
               payload: e.target.value,

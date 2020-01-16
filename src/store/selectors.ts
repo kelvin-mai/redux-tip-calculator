@@ -9,11 +9,18 @@ export const selectPercentage: StoreSelector<number> = state =>
 
 export const selectSplit: StoreSelector<number> = state => state.split;
 
-export const selectTotal: StoreSelector<number> = state =>
-  state.bill + state.bill * (state.percentage / 100);
+export const selectTotal: StoreSelector<string> = state => {
+  const total = state.bill + state.bill * (state.percentage / 100);
+  return total.toFixed(2);
+};
 
-export const selectTip: StoreSelector<number> = state =>
-  state.bill * (state.percentage / 100);
+export const selectTip: StoreSelector<string> = state => {
+  const tip = state.bill * (state.percentage / 100);
+  return tip.toFixed(2);
+};
 
-export const selectPerPerson: StoreSelector<number> = state =>
-  (state.bill + state.bill * (state.percentage / 100)) / state.split;
+export const selectPerPerson: StoreSelector<string> = state => {
+  const perPerson =
+    (state.bill + state.bill * (state.percentage / 100)) / state.split;
+  return perPerson.toFixed(2);
+};
